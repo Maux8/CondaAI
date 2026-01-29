@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             xmlns:model="clr:namespace:Conda_AI.Model"
+             xmlns:scheduler="clr-namespace:Syncfusion.Maui.Scheduler;assembly=Syncfusion.Maui.Scheduler"
+             xmlns:local="clr-namespace:Conda_AI.View"
+             x:Class="Conda_AI.View.CalendarPage"  
+             Title="{Binding Title}">
+
+    <scheduler:SfScheduler View="Month"
+                           AllowedViews="Day,Week,Month,TimelineDay,TimelineWeek,TimelineMonth,Agenda"
+                           AppointmentsSource="{Binding CalendarEntries}" >
+    </scheduler:SfScheduler>
+</ContentPage> 

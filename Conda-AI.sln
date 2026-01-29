@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conda-AI", "Conda-AI.csproj", "{B474C54D-3CCF-49EF-8DE2-E5B3EA6B4057}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{B244E153-8C0B-4A8B-A7D8-D4B6A178B0BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B474C54D-3CCF-49EF-8DE2-E5B3EA6B4057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B474C54D-3CCF-49EF-8DE2-E5B3EA6B4057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B474C54D-3CCF-49EF-8DE2-E5B3EA6B4057}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B474C54D-3CCF-49EF-8DE2-E5B3EA6B4057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B474C54D-3CCF-49EF-8DE2-E5B3EA6B4057}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B244E153-8C0B-4A8B-A7D8-D4B6A178B0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B244E153-8C0B-4A8B-A7D8-D4B6A178B0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B244E153-8C0B-4A8B-A7D8-D4B6A178B0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B244E153-8C0B-4A8B-A7D8-D4B6A178B0BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2B722777-C1A0-45AB-9C38-7232922F06CF}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Shell
+    FlyoutBehavior="Disabled"
+    Title="Conda_AI"
+    x:Class="Conda_AI.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:local="clr-namespace:Conda_AI.View"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <TabBar x:Name="MainTabBar">
+        <Tab Icon="home.png" Title="Home">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+        </Tab>
+
+        <Tab Icon="chat.png" Title="Chat">
+            <ShellContent ContentTemplate="{DataTemplate local:ChatPage}" Route="ChatPage" />
+        </Tab>
+
+        <Tab Icon="calendar.png" Title="Kalendar">
+            <ShellContent ContentTemplate="{DataTemplate local:CalendarPage}" Route="CalendarPage" />
+        </Tab>
+
+        <Tab Icon="check_circle.png" Title="To-Do">
+            <ShellContent ContentTemplate="{DataTemplate local:TasksListsPage}" Route="TaskListPage" />
+        </Tab>
+
+        <Tab Icon="settings.png" Title="Einstellungen">
+            <ShellContent ContentTemplate="{DataTemplate local:SettingsPage}" Route="SettingsPage" />
+        </Tab>
+    </TabBar>
+
+    <!--  <ShellContent  -->
+    <!--  ContentTemplate="{DataTemplate local:OnBoardingPage}"  -->
+    <!--  Route="OnBoarding"  -->
+    <!--  Shell.TabBarIsVisible="False"  -->
+    <!--  x:Name="OnboardingContent" />  -->
+</Shell>

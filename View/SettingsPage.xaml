@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Conda_AI.ViewModel"
+             x:Class="Conda_AI.View.SettingsPage"
+             Title="Einstellungen">
+
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="30">
+
+            <Label Text="Allgemein" FontSize="Medium" FontAttributes="Bold" />
+
+            <!-- Zeigt den aktuellen Benutzernamen an -->
+            <Label Text="{Binding UserName}" FontSize="Large" FontAttributes="Italic" />
+
+            <!-- Schaltfläche, um den Namen zu ändern -->
+            <Button Text="Name ändern"
+                    Command="{Binding ChangeNameCommand}"
+                    BackgroundColor="LightBlue"
+                    TextColor="Black" />
+
+            <!-- Benachrichtigungen Einstellungen -->
+            <Label Text="Benachrichtigungen" FontSize="Medium" FontAttributes="Bold" />
+            <HorizontalStackLayout>
+                <Label Text="Push-Benachrichtigungen" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding NotificationsEnabled}" />
+            </HorizontalStackLayout>
+
+            <!-- Dark Mode Schalter -->
+            <Label Text="Design" FontSize="Medium" FontAttributes="Bold" />
+            <HorizontalStackLayout>
+                <Label Text="Dunkles Design aktivieren" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding IsDarkMode}" />
+            </HorizontalStackLayout>
+
+            <!-- Cache Löschen Button -->
+            <Label Text="Datenschutz" FontSize="Medium" FontAttributes="Bold" />
+            <Button Text="Cache leeren" Command="{Binding ClearCacheCommand}" />
+
+            <!-- App zurücksetzen Button -->
+            <Button Text="App zurücksetzen" TextColor="Red" Command="{Binding ResetAppCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

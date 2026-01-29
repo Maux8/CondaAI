@@ -1,0 +1,9 @@
+namespace Conda_AI.View;
+
+public partial class SettingsPage : ContentPage
+{
+	public SettingsPage()
+	{
+		InitializeComponent();
+	}
+}

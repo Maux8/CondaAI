@@ -1,0 +1,58 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Conda_AI.Model.Enums"
+             x:Class="Conda_AI.View.TaskModelPage"
+             x:Name="TaskPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <Entry Placeholder="Name" Text="{Binding CurrentTaskModel.Name}"/>
+            <Entry Placeholder="Description" Text="{Binding CurrentTaskModel.Description}"/>
+            <DatePicker Date="{Binding CurrentTaskModel.DueDate}" />
+            <Entry Placeholder="Ort" Text="{Binding CurrentTaskModel.Location}" />
+            <Entry Placeholder="Dauer (h)" Keyboard="Numeric" Text="{Binding CurrentTaskModel.EstimatedEffort}" />
+
+            <Picker Title="Priorität" SelectedItem="{Binding CurrentTaskModel.Priority}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type model:TaskPriority}">
+                        <model:TaskPriority>Gering</model:TaskPriority>
+                        <model:TaskPriority>Mittel</model:TaskPriority>
+                        <model:TaskPriority>Hoch</model:TaskPriority>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Status" SelectedItem="{Binding CurrentTaskModel.Status}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type model:TaskStatusConda}">
+                        <model:TaskStatusConda>ToDo</model:TaskStatusConda>
+                        <model:TaskStatusConda>InProgress</model:TaskStatusConda>
+                        <model:TaskStatusConda>Done</model:TaskStatusConda>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Picker Title="Kategorie" SelectedItem="{Binding CurrentTaskModel.Category}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type model:TaskCategoryEnum}">
+                        <model:TaskCategoryEnum>Privat</model:TaskCategoryEnum>
+                        <model:TaskCategoryEnum>Arbeit</model:TaskCategoryEnum>
+                        <model:TaskCategoryEnum>Freunde</model:TaskCategoryEnum>
+                        <model:TaskCategoryEnum>Projekte</model:TaskCategoryEnum>
+                        <model:TaskCategoryEnum>ToDo</model:TaskCategoryEnum>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <HorizontalStackLayout Margin="20">
+                <Button Text="Speichern"
+                        Command="{Binding SaveCommand}"
+                        Margin="20"/>
+                <Button Text="Löschen"
+                        Margin="20"
+                        Command="{Binding DeleteCommand}"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

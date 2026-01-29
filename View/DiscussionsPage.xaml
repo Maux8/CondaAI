@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    Title="Discussions"
+    x:Class="Conda_AI.View.DiscussionsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodel="clr-namespace:Conda_AI.ViewModel"
+    xmlns:model="clr-namespace:Conda_AI.Model">
+
+    <Grid
+        RowDefinitions="Auto,*,Auto"
+        Padding="15">
+
+        <!-- Header -->
+        <StackLayout Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,15">
+            <Label Text="Your Discussions" FontSize="24" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+            <Button Text="+" FontSize="20" Command="{Binding CreateNewDiscussionCommand}" WidthRequest="50" HeightRequest="50" CornerRadius="25" BackgroundColor="#007bff" TextColor="White" />
+        </StackLayout>
+
+        <!-- Discussions List -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Discussions}" SelectionMode="Single" SelectedItem="{Binding SelectedDiscussion}">
+            <CollectionView.EmptyView>
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <Label Text="No discussions yet" FontSize="18" TextColor="#888" HorizontalTextAlignment="Center" />
+                    <Label Text="Start a new chat by tapping the + button" FontSize="14" TextColor="#888" HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Discussion">
+                    <SwipeView>
+                        <SwipeView.LeftItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Rename" 
+                                          BackgroundColor="#007bff"
+                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:DiscussionViewModel}}, Path=RenameDiscussionCommand}"
+                                          CommandParameter="{Binding .}" />
+                                <SwipeItem Text="Delete" 
+                                          BackgroundColor="Red"
+                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:DiscussionViewModel}}, Path=DeleteDiscussionCommand}"
+                                          CommandParameter="{Binding .}" />
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+
+                        <Grid Padding="10" Margin="0,5">
+                            <Frame BorderColor="#ddd" CornerRadius="10" HasShadow="True" Padding="15">
+                                                                    <Grid ColumnDefinitions="*,Auto,Auto,Auto">
+                                    <StackLayout Grid.Column="0" Spacing="5">
+                                        <Label Text="{Binding Title}" FontSize="16" FontAttributes="Bold" LineBreakMode="TailTruncation" />
+                                        <Label Text="{Binding LastUpdatedAt, StringFormat='{0:g}'}" FontSize="12" TextColor="#666" />
+                                    </StackLayout>
+
+                                    <Button Grid.Column="1" 
+                                           Text="✎" 
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:DiscussionViewModel}}, Path=RenameDiscussionCommand}"
+                                           CommandParameter="{Binding .}"
+                                           BackgroundColor="#f0f0f0"
+                                           TextColor="#444"
+                                           CornerRadius="5"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Margin="0,0,5,0" />
+
+                                    <Button Grid.Column="2" 
+                                           Text="🗑️" 
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:DiscussionViewModel}}, Path=DeleteDiscussionCommand}"
+                                           CommandParameter="{Binding .}"
+                                           BackgroundColor="#ffeeee"
+                                           TextColor="#d33"
+                                           CornerRadius="5"
+                                           HeightRequest="40"
+                                           WidthRequest="40"
+                                           Margin="0,0,5,0" />
+
+                                    <Button Grid.Column="3" 
+                                           Text="Open" 
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:DiscussionViewModel}}, Path=SelectDiscussionCommand}"
+                                           CommandParameter="{Binding .}"
+                                           BackgroundColor="#007bff"
+                                           TextColor="White"
+                                           CornerRadius="5"
+                                           HeightRequest="40"
+                                           WidthRequest="80" />
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Loading Indicator -->
+        <ActivityIndicator Grid.Row="1" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center" />
+    </Grid>
+</ContentPage>
